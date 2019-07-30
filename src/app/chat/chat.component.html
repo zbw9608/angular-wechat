@@ -1,0 +1,35 @@
+<div class="container-fluid">
+    <div class="row title">
+        <div class="col text-dark text-center" style="height:60px">
+            <p style="line-height:60px;font-size: 20px">{{ name }}</p>
+        </div>
+        <button class="back text-dark" (click)="back()"><img src="../../assets/back.jpg"></button>
+    </div>
+    <div class="row container">
+        <div class="col text-dark" style="height:20px">
+            <p class="text-center time">{{ newTime }}</p>
+            <ul  style="width:320px">
+                <li *ngFor="let new of newMess">
+                    <span>&nbsp;&nbsp;{{ new }}&nbsp;&nbsp;</span>
+                    <img class="avatar" />
+                </li>
+            </ul>
+        </div>
+        
+    </div>
+    <div class="row footer">
+        <div class="col text-dark" style="height:60px">
+            <div class="print-container" *ngIf="isVoice">
+                <img class="voice" src="../../assets/voice.png" (click)="change(isVoice)">
+                <input type="text" [(ngModel)]="enterMess" (keyup.enter)="keyUpEnter(enterMess)"/>
+            </div>
+            <div class="voice-container" *ngIf="!isVoice">
+                <img class="print" src="../../assets/print.png" (click)="change(isVoice)">
+                <button>Hold to Talk</button>
+            </div>
+            <img class="emoji" src="../../assets/emoji.png">
+            <img class="more" src="../../assets/more.png">
+        </div>
+    </div>
+</div>
+    

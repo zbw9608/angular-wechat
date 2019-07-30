@@ -1,0 +1,13 @@
+<ul class="listGroup">
+    <input placeholder="search" />
+    <li *ngFor="let group of items; let i = index" class="list-group" >
+        <h2 [attr.id]="group.title" [attr.data-group]="i" class="list-group-title">{{ group.title }}</h2>
+        <ul [attr.data-group]="i">
+            <li [attr.data-group]="i" *ngFor="let item of group.items" class="list-group-item" 
+            (click)="enterChat(item.id)">
+                <img class="avatar" />
+            <span class="name">{{ item.name }}</span>
+            </li>
+        </ul>
+    </li>
+</ul>
