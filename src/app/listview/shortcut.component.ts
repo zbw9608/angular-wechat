@@ -1,4 +1,5 @@
-import { Component, OnInit, OnDestroy, Input } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input, Output } from '@angular/core';
+import { EventEmitter } from 'events';
 
 @Component({
     selector: 'short-cut',
@@ -7,7 +8,7 @@ import { Component, OnInit, OnDestroy, Input } from '@angular/core';
         <ul>
             <li *ngFor="let item of items, let i = index" class="item" 
             [ngClass]="{current: currentIndex==i}">
-                <a href="namelist#{{ item.title }}" [ngClass]="{current: currentIndex==i}">{{ item.title }}</a>
+                <a href="contacts#{{ item.title }}" [ngClass]="{current: currentIndex==i}">{{ item.title }}</a>
             </li>
         </ul>
     </div>
@@ -21,6 +22,7 @@ export class ShortcutComponent implements OnInit, OnDestroy {
 
     public currentIndex: number = 0;
     public isInput: boolean = true;
+    
 
     ngOnInit() {
         window.addEventListener('scroll', this.scrollEvent, true);

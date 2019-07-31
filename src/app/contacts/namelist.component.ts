@@ -1,10 +1,30 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from './data.service';
+import { DataService } from '../data.service';
 
 @Component({
     selector: "name-list",
-    templateUrl: "./namelist.component.html",
-    styleUrls: ["./namelist.component.css"]
+    template: `
+    <div class="container-fluid">
+        <div class="row title">
+            <div class="col text-black text-center" style="height: 60px">
+                <p style="line-height:60px;font-size: 20px">Contacts</p>
+            </div>
+        </div>
+        <list-view [items]="items" class="row"></list-view>
+        <short-cut [items]="items"></short-cut>
+    </div>`,
+    styles: [`
+    .container-fluid {
+        background-color: #f5f5f5;
+        height: 100%;
+    }
+    .title {
+        height: 65px;
+        padding: 0;
+        font-weight: 500;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    `]
 })
 export class NamelistComponent implements OnInit{
     items: any;

@@ -41,7 +41,7 @@ export class ChatComponent implements OnInit {
     }
 
     back() {
-        this.router.navigateByUrl("/name-list");
+        this.router.navigateByUrl("/contacts");
     }
     
     /**
@@ -76,5 +76,4 @@ export class ChatComponent implements OnInit {
         const input = document.getElementsByTagName("input")[0];
         input.value = "";
     }
-    
 }
