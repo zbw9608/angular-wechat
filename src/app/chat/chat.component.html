@@ -5,17 +5,16 @@
         </div>
         <button class="back text-dark" (click)="back()"><img src="../../assets/back.jpg"></button>
     </div>
-    <div class="row container">
-        <div class="col text-dark" style="height:20px">
-            <p class="text-center time">{{ newTime }}</p>
-            <ul  style="width:320px">
-                <li *ngFor="let new of newMess">
+    <div class="row middle">
+        <div class="col text-dark">
+            <p class="text-center time">{{ time }}</p>
+            <ul>
+                <li *ngFor="let new of mess">
                     <span>&nbsp;&nbsp;{{ new }}&nbsp;&nbsp;</span>
                     <img class="avatar" />
                 </li>
             </ul>
         </div>
-        
     </div>
     <div class="row footer">
         <div class="col text-dark" style="height:60px">

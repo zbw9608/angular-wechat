@@ -33,7 +33,7 @@ export class ShortcutComponent implements OnInit, OnDestroy {
     }
 
     scrollEvent = (event: any): void => {
-        const elem = document.elementFromPoint(0, 95);
+        const elem = document.elementFromPoint(0, 97);
         if (elem.className === "listGroup") {
             this.isInput = true;
         } else {

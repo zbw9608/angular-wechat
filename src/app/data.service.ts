@@ -1,3 +1,6 @@
+import { Injectable } from '@angular/core';
+
+@Injectable()
 export class DataService {
     items = [{
         key: 'A',
@@ -99,4 +102,22 @@ export class DataService {
             id: 17
         }]
     }];
+    
+    public caCheValue = {};
+    constructor() {}
+
+    public setValue(id: number, name: string, mess: any, time: any) {
+        const index = id + name;
+        if (!this.caCheValue[index]) {
+            this.caCheValue[index] = {
+                id: id,
+                name: name,
+                mess: [],
+                time: []
+            }
+        }
+        this.caCheValue[index].mess.push(mess);
+        this.caCheValue[index].time.push(time);
+        console.log(this.caCheValue);
+    }
 }

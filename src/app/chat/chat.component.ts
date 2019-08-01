@@ -24,10 +24,19 @@ export class ChatComponent implements OnInit {
                     this.id = parseInt(nowRouter.split('/')[2]);
                 }
 
+    /**
+     * 从data.service中获取所有联系人的data
+     * @memberof ChatComponent
+     */
     ngOnInit() {
         this.items = this.dataService.items; 
     }
 
+    /**
+     * 根据路由的id值获取对应的name
+     * @readonly
+     * @memberof ChatComponent
+     */
     get name() {
         for (let key in this.items) {
             let list = this.items[key].list;
@@ -40,8 +49,13 @@ export class ChatComponent implements OnInit {
         }
     }
 
+    /**
+     * 点击返回键返回到上一次的页面，使用了原生js回退
+     * @memberof ChatComponent
+     */
     back() {
-        this.router.navigateByUrl("/contacts");
+        // this.router.navigateByUrl("/contacts");
+        history.back();
     }
     
     /**
@@ -75,5 +89,22 @@ export class ChatComponent implements OnInit {
         this.newMess.push(enterMess);
         const input = document.getElementsByTagName("input")[0];
         input.value = "";
+        this.dataService.setValue(this.id, this.name, enterMess, this.newTime);
+        console.log(this.dataService.caCheValue[this.id + this.name].mess)
+    }
+
+    get time() {
+        let time = '';
+        if (this.dataService.caCheValue[this.id + this.name]) {
+            time = this.dataService.caCheValue[this.id + this.name].time[0];
+        }
+        return time;
+    }
+    get mess() {
+        let mess = [];
+        if (this.dataService.caCheValue[this.id + this.name]) {
+            mess = this.dataService.caCheValue[this.id + this.name].mess;
+        }
+        return mess;
     }
 }

@@ -8,9 +8,8 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 input {
-    width: 98%;
+    width: 100%;
     text-align: center;
-    margin-left: 1%;
     outline: 0;
     border: rgba(0,0,0,.08) 1px solid;
     height: 40px;
@@ -62,7 +61,7 @@ ul {
 }
 .mess {
     position: absolute;
-    top: 35px;
+    top: 38px;
     left: 78px;
-    font-size: 16px;
+    font-size: 14px;
 }
