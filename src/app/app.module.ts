@@ -9,9 +9,8 @@ import { NamelistComponent } from './contacts/namelist.component';
 import { ListviewComponent } from './listview/listview.component';
 import { ShortcutComponent } from './listview/shortcut.component';
 import { ChatComponent } from './chat/chat.component';
-import { RouterModule, RouteReuseStrategy } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { DataService } from './data.service';
-import { CustomRouteReuseStrategy } from './RouteReuseStrategy';
 
 @NgModule({
   declarations: [
@@ -21,16 +20,13 @@ import { CustomRouteReuseStrategy } from './RouteReuseStrategy';
   imports: [
     BrowserModule, FormsModule,
     RouterModule.forRoot([
-      { path: "index", component: IndexerComponent, data:{reload: true} },
-      { path: "contacts", component: NamelistComponent, data:{reload: true} },
-      { path: "chat/:id ", component: ChatComponent, data:{reload: true}},
+      { path: "index", component: IndexerComponent },
+      { path: "contacts", component: NamelistComponent },
+      { path: "chat/:id ", component: ChatComponent},
       { path: "**", redirectTo: "/index" }
     ])
   ],
-  providers: [
-    DataService,
-    { provide: RouteReuseStrategy, useClass: CustomRouteReuseStrategy }
-  ],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
