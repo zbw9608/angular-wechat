@@ -1,5 +1,4 @@
-import { Component, OnInit, OnDestroy, Input, AfterContentInit, AfterViewInit, AfterContentChecked } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, AfterContentChecked } from '@angular/core';
 
 @Component({
     selector: 'tab',
@@ -7,8 +6,8 @@ import { ActivatedRoute, Router } from '@angular/router';
     <div class="tab">
        <a [routerLink]="['index']" class="tab-item" [ngClass]="{active: chats}">Chats</a>
        <a [routerLink]="['contacts']" class="tab-item" [ngClass]="{active: contacts}">Contacts</a>
-       <a class="tab-item">Discover</a>
-       <a class="tab-item">Me</a>
+       <a [routerLink]="['discover']" class="tab-item" [ngClass]="{active: discover}">Discover</a>
+       <a [routerLink]="['personal']" class="tab-item" [ngClass]="{active: personal}">Me</a>
     </div>
     `,
     styles: [`
@@ -16,7 +15,7 @@ import { ActivatedRoute, Router } from '@angular/router';
         display: flex;
         line-height: 80px;
         height: 60px;
-        background: #f5f5f5;
+        background: rgba(246,246,246,.8);
         border-top: rgba(0,0,0,.05) 1px solid;
     }
     .tab-item {
@@ -30,13 +29,15 @@ import { ActivatedRoute, Router } from '@angular/router';
         text-decoration: none;
     }
     .active {
-        color: limegreen;
+        color: #36b05d;
     }
     `]
 })
 export class TabComponent implements AfterContentChecked {
     public chats: boolean = true;
     public contacts: boolean = false;
+    public discover: boolean = false;
+    public personal: boolean = false;
     
     constructor() {}
     
@@ -49,9 +50,23 @@ export class TabComponent implements AfterContentChecked {
         if (elem == "INDEXER") {
             this.chats = true;
             this.contacts = false;
+            this.personal = false;
+            this.discover = false;
         } else if (elem == "NAME-LIST") {
             this.contacts = true;
             this.chats = false;
+            this.personal = false;
+            this.discover = false;
+        } else if (elem == "PERSONAL") {
+            this.contacts = false;
+            this.chats = false;
+            this.personal = true;
+            this.discover = false;
+        } else {
+            this.contacts = false;
+            this.chats = false;
+            this.personal = false;
+            this.discover = true;
         }
     }
 }

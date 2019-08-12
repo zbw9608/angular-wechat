@@ -1,0 +1,125 @@
+.container, .more {
+    background: #f6f6f6;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+}
+li {
+    list-style: none;
+    display: inline-block;
+}
+.emoji {
+    position: fixed;
+    bottom: 0;
+    height: 44px;
+    width: 100%;
+    background: white;
+    border-top: rgba(0,0,0,.04) 1px solid;
+}
+.emoji > ul {
+    padding: 0;
+    margin: 0;
+    height: 44px;
+}
+.emoji li {
+    width: 44px;
+    height: 100%;
+    border-right: rgba(0,0,0,.04) 1px solid;
+}
+.emoji li.active {
+    background: rgba(245,245,245,1);
+}
+.emoji li img {
+    position: relative;
+    top: 6px;
+    left: 7px;
+}
+.emoji > p {
+    background: rgba(245,245,245,.4);
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 54px;
+    height: 44px;
+    margin: 0;
+    border-left: #dcdcdc 1px solid;
+    box-shadow: -2px 0 3px rgba(169,169,169,.2);
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 44px;
+}
+#emoji_container ul, #like_container ul {
+    margin: 30px 5%;
+    padding: 0;
+    width: 90%;
+}
+#emoji_container li {
+    width: 12.5%;
+}
+#emoji_container img {
+    width: 26px;
+    height: 26px;
+}
+#like_container li {
+    text-align: center;
+    width: 25%;
+}
+#like_container img {
+    width: 60px;
+    height: 60px;
+}
+#record_container {
+    width: 100%;
+    text-align: center;
+}
+#record_container > div > img {
+    width: 60px;
+    height: 60px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+#record_container > p.first {
+    font-weight: 600;
+    font-size: 18px;
+    margin-bottom: 6px;
+}
+#record_container > p.second {
+    font-size: 12px;
+}
+
+.more > ul {
+    width: 90%;
+    padding: 0;
+    margin: 10px 5%;
+}
+.more li {
+    text-align: center;
+    width: 25%;
+    height: 70px;
+    font-size: 12px;
+    margin-top: 10px;
+}
+.more li > div {
+    margin-left: 13px;
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    background: #fff;
+}
+.more li > p {
+    margin: 6px 0;
+    color: DarkGray;
+}
+.marker {
+    position: fixed;
+    bottom: 10px;
+    margin-left: 47%;
+}
+.marker div {
+    width: 8px;
+    height: 8px;
+    background: DarkGray;
+    border-radius: 50%;
+    display: inline-block;
+}

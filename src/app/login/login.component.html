@@ -1,0 +1,30 @@
+<div class="container-fluid">
+    <div class="row top">
+        <div class="portrait"><img src="../../assets/{{account.portrait}}.jpg" /></div>
+        <div class="account_qq" *ngIf="isQq">{{ account.qq }}</div>
+        <div class="account_qq" *ngIf="!isQq">+86 {{ account.phone }}</div>
+    </div>
+    <div class="row middle">
+        <div class="psw" *ngIf="isQq">
+            <span>Password<input placeholder="Enter QQ password" [(ngModel)]="psw" type="password" /></span>
+        </div>
+        <div class="code" *ngIf="!isQq">
+            <span>Code
+                <input placeholder="Enter code" [(ngModel)]="code" type="text" />
+                <button>Send</button>
+            </span>
+        </div>
+        <div class="hint" (click)="changeOption()">
+            <span *ngIf="isQq">Log in via SMS verification code</span>
+            <span *ngIf="!isQq">Log in via QQ password</span>
+        </div>
+    </div>
+    <div class="row btn">
+        <button [disabled]="psw == '' || psw == undefined" (click)=getPsw(psw)>Log In</button>
+    </div>
+    <div class="bottom">
+        <span>Unable to Log In?</span>
+        <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+        <span>More Options</span>
+    </div>
+</div>

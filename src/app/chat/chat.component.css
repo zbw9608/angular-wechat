@@ -1,28 +1,43 @@
 .container-fluid {
-    background: #f5f5f5;
+    background: rgba(237,237,237,.85);
     position: fixed;
     top: 0;
     bottom: 0;
 }
 .title {
+    background: rgba(237,237,237,.95);
     border-bottom: #dcdcdc 1px solid;
+    color: #222222;
 }
-.back {
+p > img {
+    width: 18px;
+    height: 22px;
+}
+.title > button {
     outline: none;
     border: 0;
-    background: #f5f5f5;
+    background: rgba(237,237,237,.85);
     position: absolute;
     line-height: 60px;
     padding: 0;
-    left: 15px;
+}
+button > img {
+    width: 36px;
+    height: 36px;
+}
+.back {
+    left: 6px;
     top: -2px;
 }
-.back img {
-    width: 20px;
-    height: 20px;
+.detail {
+    right: 10px;
 }
 .middle {
-    height: 545px;
+    height: 549px;
+    overflow-y: scroll;
+}
+.show {
+    height: 309px;
     overflow-y: scroll;
 }
 .time {
@@ -42,50 +57,77 @@ li {
     width: 100%;
     text-align: right;
 }
-span {
-    border: 1px solid yellowgreen;
-    background: yellowgreen;
+.triangle {
+    width: 0;
+    height: 0;
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    border-left: 6px solid #94eb6c;
+    position: relative;
+    top: 24px;
+    left: 296px;
+    /* right: 50px; */
+}
+li > span {
+    border: 1px solid #94eb6c;
+    background: #94eb6c;
     border-radius: 5px;
     min-height: 36px;
     display: inline-block;
     line-height: 36px;
     max-width: 260px;
+    text-align: left;
+    padding: 0 10px;
 }
 .avatar {
     width: 36px;
     height: 36px;
     border-radius: 8px;
-    margin-left: 10px;
+    margin-left: 12px;
 }
 .footer {
     border-top: #dcdcdc 1px solid;
+    border-bottom: #dcdcdc 1px solid;
+    background: #f6f6f6;
+    height: auto;
+    z-index: 2;
+}
+.auto-footer {
+    min-height:56px;
+    border:0;
+    outline:none;
 }
 .footer input, .voice-container button {
     height: 40px;
-    margin-top: 10px;
-    width: 68%;
-    margin-left: 10%;
-    outline: none;
-    border: 0;
-    border-radius: 5px;
     text-indent: 10px;
+    position: absolute;
+    bottom: 8px;
+    left: 46px;
+    width: 64%;
+    outline: none;
+    border: rgba(0,0,0,.05) 1px solid;
+    border-radius: 5px;
     caret-color: green;
     background: white;
     z-index: 2;
 }
-.voice {
-    width: 45px;
-    height: 45px;
-    position: absolute;
-    left: 0;
-    top: 5px;
+.footer input .voice-container button {
+    height: 40px;
 }
-.print {
-    width: 49px;
-    height: 49px;
+.footer .input {
+    min-height: 40px;
+    max-height: 120px;
+    padding: 6px 10px;
+    overflow-y: scroll;
+}
+.footer img {
+    width: 32px;
+    height: 32px;
     position: absolute;
-    left: -1px;
-    top: 5px;
+}
+.voice, .print {
+    left: 8px;
+    bottom: 12px;
 }
 .voice-container button {
     font-weight: 550;
@@ -93,16 +135,10 @@ span {
     color: #333;
 }
 .emoji {
-    position: absolute;
-    left: 76%;
-    top: 5px;
-    width: 45px;
-    height: 45px;
+    right: 50px;
+    bottom: 12px;
 }
 .more {
-    position: absolute;
-    left: 88%;
-    top: 4px;
-    width: 45px;
-    height: 45px;
+    right: 10px;
+    bottom: 12px;
 }

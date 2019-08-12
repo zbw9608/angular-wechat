@@ -7,7 +7,7 @@ import { DataService } from '../data.service';
     <div class="container-fluid">
         <div class="row title">
             <div class="col text-black text-center" style="height: 60px">
-                <p style="line-height:60px;font-size: 20px">Contacts</p>
+                <p style="line-height:60px;font-size: 18px">Contacts</p>
             </div>
         </div>
         <list-view [items]="items" class="row"></list-view>
@@ -15,7 +15,7 @@ import { DataService } from '../data.service';
     </div>`,
     styles: [`
     .container-fluid {
-        background-color: #f5f5f5;
+        background-color: rgba(237,237,237,.85);
         height: 100%;
     }
     .title {

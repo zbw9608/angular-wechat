@@ -6,6 +6,7 @@ import { EventEmitter } from 'events';
     template: `
     <div class="list-shortcut">
         <ul>
+            <img src="../../assets/search_shortcut.png" style="width:10px; height:10px;" (click)="scrollToTop()" />
             <li *ngFor="let item of items, let i = index" class="item" 
             [ngClass]="{current: currentIndex==i}">
                 <a href="contacts#{{ item.title }}" [ngClass]="{current: currentIndex==i}">{{ item.title }}</a>
@@ -20,7 +21,7 @@ import { EventEmitter } from 'events';
 export class ShortcutComponent implements OnInit, OnDestroy {
     @Input() items: any[];
 
-    public currentIndex: number = 0;
+    public currentIndex: number = -1;
     public isInput: boolean = true;
     
 
@@ -34,14 +35,19 @@ export class ShortcutComponent implements OnInit, OnDestroy {
 
     scrollEvent = (event: any): void => {
         const elem = document.elementFromPoint(0, 97);
-        if (elem.className === "listGroup") {
+        if (elem.getAttribute("data-group") === null) {
             this.isInput = true;
         } else {
             this.isInput = false;
         }
         if (elem && elem.attributes["data-group"]) {
             this.currentIndex = parseInt(elem.attributes["data-group"].value);
+        } else {
+            this.currentIndex = -1;
         }
+    }
+    scrollToTop() {
+        document.getElementsByClassName("listGroup")[0].scrollTop = 0;
     }
 
     get fixedTitle() {
@@ -49,7 +55,7 @@ export class ShortcutComponent implements OnInit, OnDestroy {
             return ''
         } else {
             let map = [];
-            this.items.forEach((item, index) => {
+            this.items.forEach((item) => {
                 const key = item.title;
                 if (map.indexOf(key) === -1) {
                     map.push(key);

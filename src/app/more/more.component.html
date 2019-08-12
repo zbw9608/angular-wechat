@@ -1,0 +1,54 @@
+<div *ngIf="isEmoji" class="container">
+    <div class="emoji">
+        <ul>
+            <li *ngFor="let icon of this.icons; let i = index" class="icon" 
+            (click)="changeIcon(i)" [ngClass]="{'active': i===1}"
+            id="{{ icon }}">
+                <img style="height: 28px;width: 28px" src="../../assets/{{ icon }}_white.png" />
+            </li>
+        </ul>
+        <p>Send</p>
+    </div>
+    <div id="emoji_container">
+        <ul>
+            <li *ngFor="let emoji of emojis" (click)="keyupEmoji(emoji)">
+                <img src="../../assets/emoji/{{emoji}}.png" />
+            </li>
+        </ul>
+    </div>
+    <div id="like_container" style="display: none">
+        <ul>
+            <li><img src="../../assets/add_border.png" /></li>
+            <li *ngFor="let like of likes" (click)="keyupLike(like)">
+                <img src="../../assets/like/{{like}}.png" />
+            </li>
+        </ul>
+    </div>
+    <div id="record_container" style="display: none">
+        <div><img src="../../assets/camera_border.png"/></div>
+        <p class="first">Record Your Own Stickers</p>
+        <p class="second">Your selfie stickers will be saved here for you to use.</p>
+    </div>
+</div>
+<div *ngIf="isMore" class="more">
+    <ul *ngIf="isFirst">
+        <li *ngFor="let choice of this.firstChooses">
+            <div>
+                <img src="../../assets/{{ choice }}.png" style="height: 30px;width: 30px;margin-top: 15px" />
+            </div>
+            <p>{{ choice }}</p>
+        </li>
+    </ul>
+    <ul *ngIf="!isFirst">
+            <li *ngFor="let choice of this.secondChooses">
+                <div>
+                    <img src="../../assets/{{ choice }}.png" style="height: 30px;width: 30px;margin-top: 15px" />
+                </div>
+                <p>{{ choice }}</p>
+            </li>
+        </ul>
+    <div class="marker">
+        <div style="background: #333" (click)="funcPage(0)"></div>
+        <div style="margin-left: 10px" (click)="funcPage(1)"></div>
+    </div>
+</div>

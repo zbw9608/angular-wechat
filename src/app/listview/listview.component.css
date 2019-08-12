@@ -74,9 +74,9 @@ ul.listGroup {
     margin: 0;
 }
 .current {
-    border:1px solid limegreen;
+    border:1px solid #36b05d;
     border-radius: 50%;
-    background-color: limegreen;
+    background-color: #36b05d;
     color: #f5f5f5;
     font-size: 12px;
     font-weight: bold;
@@ -96,7 +96,7 @@ ul.listGroup {
     line-height: 32px;
     padding-left: 20px;
     font-size: 12px;
-    color: limegreen;
+    color: #36b05d;
     background: white;
     margin-bottom: 0;
 }

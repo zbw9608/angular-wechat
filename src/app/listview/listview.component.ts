@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, Input, HostListener } from "@angular/core";
 import { Router } from "@angular/router";
 
 @Component({
@@ -8,6 +8,7 @@ import { Router } from "@angular/router";
 })
 export class ListviewComponent {
     @Input() items: any[];
+    public funcs = ["New Friends", "Group Chats", "Tags", "Official Accounts"];
 
     constructor(private router: Router) {}
 

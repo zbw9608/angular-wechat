@@ -1,34 +1,38 @@
 <div class="container-fluid">
     <div class="row title">
-        <div class="col text-dark text-center" style="height:60px">
-            <p style="line-height:60px;font-size: 20px">{{ name }}</p>
+        <div class="col text-center" style="height:60px">
+            <p style="line-height:60px;font-size: 20px">{{ name }}<img src="../../assets/listen.png"/></p>
         </div>
-        <button class="back text-dark" (click)="back()"><img src="../../assets/back.jpg"></button>
+        <button class="back" (click)="back()"><img src="../../assets/back.png"></button>
+        <button class="detail"><img src="../../assets/detail.png"></button>
     </div>
-    <div class="row middle">
+    <div class="row middle" [ngClass]="{show: (isEmoji || isMore) && isVoice}" #scrollMiddle>
         <div class="col text-dark">
             <p class="text-center time">{{ time }}</p>
             <ul>
                 <li *ngFor="let new of mess">
-                    <span>&nbsp;&nbsp;{{ new }}&nbsp;&nbsp;</span>
+                    <div class="triangle"><span></span></div>
+                    <span class="mess">{{ new }}</span>
                     <img class="avatar" />
                 </li>
             </ul>
         </div>
     </div>
-    <div class="row footer">
-        <div class="col text-dark" style="height:60px">
+    <div class="row footer">  
+        <div class="col text-dark auto-footer" contenteditable="false">
             <div class="print-container" *ngIf="isVoice">
                 <img class="voice" src="../../assets/voice.png" (click)="change(isVoice)">
-                <input type="text" [(ngModel)]="enterMess" (keyup.enter)="keyUpEnter(enterMess)"/>
+                <input type="text" [ngModel]="enterMess ? '' : enterMess" (ngModelChange)="getEnterMess($event)" (keyup.enter)="keyUpEnter(enterMess)"/>
+                <!-- <div contenteditable="true" class="input" (keyup)="calculate()" (keyup.enter)="keyUpEnter()"></div> -->
             </div>
             <div class="voice-container" *ngIf="!isVoice">
                 <img class="print" src="../../assets/print.png" (click)="change(isVoice)">
                 <button>Hold to Talk</button>
             </div>
-            <img class="emoji" src="../../assets/emoji.png">
-            <img class="more" src="../../assets/more.png">
-        </div>
+            <img class="emoji" src="../../assets/emoji.png" *ngIf="!isEmoji" (click)="showEmoji(isEmoji)">
+            <img class="emoji" src="../../assets/print.png" *ngIf="isEmoji" (click)="showEmoji(isEmoji)">
+            <img class="more" src="../../assets/more.png" (click)="showMore(isMore)">
+        </div>    
     </div>
+    <more style="height: 240px;" [isEmoji]="isEmoji" [isMore]="isMore" [id]="id" [name]="name" class="row" #more></more>
 </div>
-    

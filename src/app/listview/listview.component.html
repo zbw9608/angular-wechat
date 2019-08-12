@@ -1,5 +1,9 @@
 <ul class="listGroup">
     <input placeholder="Search" />
+    <li *ngFor="let func of funcs" class="list-group-item">
+        <img class="avatar" style="border-radius: 0;" src="../../assets/{{func}}.png" />
+        <span class="name">{{ func }}</span>
+    </li>
     <li *ngFor="let group of items; let i = index" class="list-group" >
         <h2 [attr.id]="group.title" [attr.data-group]="i" class="list-group-title">
             {{ group.title }}

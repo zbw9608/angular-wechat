@@ -104,6 +104,7 @@ export class DataService {
     }];
     
     public caCheValue = {};
+    public caCheEmoji = {};
     constructor() {}
 
     public setValue(id: number, name: string, mess: any, time: any) {
@@ -118,6 +119,14 @@ export class DataService {
         }
         this.caCheValue[index].mess.push(mess);
         this.caCheValue[index].time.push(time);
-        console.log(this.caCheValue);
+    }
+
+    public account = {
+        portrait: "portrait",
+        qq: 953526156,
+        phone: 15521419608,
+        psw: 123456,
+        name: "寳文",
+        id: "zbwww0324"
     }
 }
