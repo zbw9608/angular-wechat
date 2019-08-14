@@ -1,4 +1,4 @@
-import { Component, AfterViewChecked } from '@angular/core';
+import { Component, AfterViewChecked, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { Router } from '@angular/router';
 
@@ -15,7 +15,7 @@ import { Router } from '@angular/router';
         <input placeholder="Search" (click)="close()" />
         <div class="row" (click)="close()">
             <ul style="width: 100%;" class="listGroup">
-                <li *ngFor="let item of items" class="list-group-item" (click)="enterChat(item.id)">
+                <li *ngFor="let item of data" class="list-group-item" (click)="enterChat(item.id)">
                     <div class="portrait"><img class="m-2" /></div>
                     <p class="name mt-1">{{ item.name }}</p>
                     <p class="time mt-2 text-secondary">{{ item.time ? item.time[0] : '' }}</p>
@@ -24,21 +24,28 @@ import { Router } from '@angular/router';
             </ul>   
         </div>
         <popup *ngIf="isPopup" class="popup"></popup>
+        <search style="display:none;" class="search"></search>
     </div>
     `,
     styleUrls: ["./indexer.component.css"]
 })
-export class IndexerComponent implements AfterViewChecked {
+export class IndexerComponent implements OnInit, AfterViewChecked {
     public isPopup: boolean = false;
     public data = [];
+    public count = 0;
 
     constructor(private router: Router,
         private dataService: DataService) {}
 
+    ngOnInit() {
+        this.getItems();
+    }
+
     ngAfterViewChecked() {
         const length = this.data.length;
-        if (length !== 0) {
-            this.showEmoji()
+        if (length !== 0 && this.count == 0) {
+            this.showEmoji();
+            this.count ++;
         }
     }
 
@@ -53,6 +60,8 @@ export class IndexerComponent implements AfterViewChecked {
     }
     close() {
         this.isPopup = false;
+        const search = document.getElementsByTagName("search")[0];
+        search.setAttribute("style","display:block");
     }
 
     enterChat(id: number) {
@@ -65,7 +74,7 @@ export class IndexerComponent implements AfterViewChecked {
      * @readonly
      * @memberof IndexerComponent
      */
-    get items() {
+    getItems() {
         let items = [];
         const caCheValue = this.dataService.caCheValue;
         for (let i in caCheValue) {
@@ -76,7 +85,6 @@ export class IndexerComponent implements AfterViewChecked {
         for (let j = 0; j < length; j++) {
             this.data.push(items.pop());
         }
-        
         return this.data;
     }
 

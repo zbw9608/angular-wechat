@@ -6,100 +6,122 @@ export class DataService {
         key: 'A',
         list: [{
             name: 'A1',
-            id: 0
+            id: 0,
+            remark: ''
         }, {
             name: 'A2',
-            id: 1
+            id: 1,
+            remark: ''
         }]
     }, {
         key: 'Z',
         list: [{
             name: 'Z1',
-            id: 18
+            id: 18,
+            remark: ''
         }, {
             name: 'Z2',
-            id: 19
+            id: 19,
+            remark: ''
         }]
     }, {
         key: '#',
         list: [{
             name: '--!',
-            id: 20
+            id: 20,
+            remark: ''
         }, {
             name: '2020',
-            id: 21
+            id: 21,
+            remark: ''
         }]
     }, {
         key: 'B',
         list: [{
             name: 'B1',
-            id: 2
+            id: 2,
+            remark: ''
         }, {
             name: 'B2',
-            id: 3
+            id: 3,
+            remark: ''
         }]
     }, {
         key: 'C',
         list: [{
             name: 'C1',
-            id: 4
+            id: 4,
+            remark: ''
         }, {
             name: 'C2',
-            id: 5
+            id: 5,
+            remark: ''
         }]
     }, {
         key: 'D',
         list: [{
             name: 'D1',
-            id: 6
+            id: 6,
+            remark: ''
         }, {
             name: 'D2',
-            id: 7
+            id: 7,
+            remark: ''
         }]
     }, {
         key: 'E',
         list: [{
             name: 'E1',
-            id: 8
+            id: 8,
+            remark: ''
         }, {
             name: 'E2',
-            id: 9
+            id: 9,
+            remark: ''
         }]
     }, {
         key: 'F',
         list: [{
             name: 'F1',
-            id: 10
+            id: 10,
+            remark: ''
         }, {
             name: 'F2',
-            id: 11
+            id: 11,
+            remark: ''
         }]
     }, {
         key: 'G',
         list: [{
             name: 'G1',
-            id: 12
+            id: 12,
+            remark: ''
         }, {
             name: 'G2',
-            id: 13
+            id: 13,
+            remark: ''
         }]
     }, {
         key: 'H',
         list: [{
             name: 'H1',
-            id: 14
+            id: 14,
+            remark: ''
         }, {
             name: 'H2',
-            id: 15
+            id: 15,
+            remark: ''
         }]
     }, {
         key: 'I',
         list: [{
             name: 'I1',
-            id: 16
+            id: 16,
+            remark: ''
         }, {
             name: 'I2',
-            id: 17
+            id: 17,
+            remark: ''
         }]
     }];
     

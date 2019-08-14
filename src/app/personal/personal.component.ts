@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { DataService } from '../data.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'personal',
@@ -8,10 +9,10 @@ import { DataService } from '../data.service';
         <img class="camera" src="../../assets/camera_me.png" />
         <div class="account">
             <img class="portrait" src="../../assets/{{ account.portrait }}.jpg" />
-                <p>{{ account.name }}</p>
-                <span class="text-secondary">WeChat ID: {{ account.id }}</span>
-                <img class="code" src="../../assets/code.png" />
-                <img class="code" src="../../assets/enter.png" style="margin-left:30px" />
+            <p>{{ account.name }}</p>
+            <span class="text-secondary">WeChat ID: {{ account.id }}</span>
+            <img class="code" src="../../assets/code.png" />
+            <img class="code" src="../../assets/enter.png" style="margin-left:30px" />
         </div>
         <div class="pay">
             <img class="icon" src="../../assets/WeChat Pay.png" />
@@ -27,7 +28,7 @@ import { DataService } from '../data.service';
                 </td>
             </tr>         
         </table>
-        <div class="setting">
+        <div class="setting" (click)="enter('settings')">
             <img class="icon" src="../../assets/Settings.png" />
             <span>Settings</span>
             <img class="enter" src="../../assets/enter.png" />
@@ -117,7 +118,12 @@ import { DataService } from '../data.service';
 export class PersonalComponent {
     public funcs = ["Favorite", "My Posts", "Cards & Offers", "Sticker Gallery"];
 
-    constructor(private dataService: DataService) {}
+    constructor(private dataService: DataService,
+                private router: Router) {}
 
     public account = this.dataService.account;
+
+    enter(func) {
+        this.router.navigateByUrl("/" + func);
+    }
 }

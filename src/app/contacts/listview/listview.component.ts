@@ -13,6 +13,11 @@ export class ListviewComponent {
     constructor(private router: Router) {}
 
     enterChat(id: number) {
-        this.router.navigateByUrl("/chat/" + id);
+        this.router.navigateByUrl("/account/" + id);
+    }
+    
+    open() {
+        const search = document.getElementsByTagName("search")[0];
+        search.setAttribute("style","display:block");
     }
 }

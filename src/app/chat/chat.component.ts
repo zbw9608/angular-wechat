@@ -159,7 +159,7 @@ export class ChatComponent implements OnInit, AfterViewChecked {
             try {
                 for (let i=0; i<mess.length; i++) {
                     if (mess[i].indexOf(".png") !== -1 && mess[i].indexOf("emoji/") !== -1 && span.length !== 0) {
-                        span[i].innerHTML = "<img src='../../assets/" + mess[i] + "' style='width: 26px;height: 26px;'/>";
+                        span[i].innerHTML = "<img src='../../assets/" + mess[i] + "' style='width: 22px;height: 22px;'/>";
                     }
                     else if (mess[i].indexOf(".png") !== -1 && mess[i].indexOf("like/") !== -1 && span.length !== 0) {
                         triangle[i].setAttribute("style", "display:none");

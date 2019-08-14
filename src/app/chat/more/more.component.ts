@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { DataService } from '../data.service';
-import { ChatComponent } from "../chat/chat.component";
+import { DataService } from '../../data.service';
+import { ChatComponent } from "../chat.component";
 
 @Component({
     selector: 'more',

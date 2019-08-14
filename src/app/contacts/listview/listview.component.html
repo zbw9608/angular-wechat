@@ -1,5 +1,5 @@
 <ul class="listGroup">
-    <input placeholder="Search" />
+    <input placeholder="Search" (click)="open()" />
     <li *ngFor="let func of funcs" class="list-group-item">
         <img class="avatar" style="border-radius: 0;" src="../../assets/{{func}}.png" />
         <span class="name">{{ func }}</span>
@@ -17,3 +17,4 @@
         </ul>
     </li>
 </ul>
+<search style="display:none;" class="search"></search>
